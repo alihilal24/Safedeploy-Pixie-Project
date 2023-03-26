@@ -4,6 +4,8 @@ import pandas as pd
 
 data = pd.read_csv(r'px-nodes-output.csv')
 
+print("The name of the csv file: px-nodes-output.csv \n")
+
 # Prints whole CSV
 # print(data)
 
