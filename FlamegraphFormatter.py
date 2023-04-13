@@ -1,3 +1,4 @@
+import sys
 import pandas as pd
 
 
@@ -7,8 +8,13 @@ def addToRow(df, row, col, val):
 
 
 if __name__ == '__main__':
-    data = pd.read_csv(r'flamegraph-test.csv', on_bad_lines='skip')
-    manualdata = pd.read_csv(r'pod_performance.csv')
+
+    inputfilename = sys.argv[1]
+
+    outputfilename = sys.argv[2] if len(
+        sys.argv) > 2 else 'Formatted_Pod_Performance.csv'
+
+    data = pd.read_csv(inputfilename, on_bad_lines='skip')
 
     # filename = input("Enter name of new CSV filename: ")
     #
@@ -41,4 +47,4 @@ if __name__ == '__main__':
 
     # df.to_csv(filename, index=False)
 
-    df.to_csv('Formatted_Pod_Performance.csv', index=False)
+    df.to_csv(outputfilename, index=False)
