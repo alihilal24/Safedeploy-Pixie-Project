@@ -21,18 +21,21 @@ if __name__ == '__main__':
     # if not filename.endswith('.csv'):
     #     filename += '.csv'
 
-    index_to_remove = data[data['Table ID: network_timeseries']
-                           == 'Table ID: Pod Performance Flamegraph'].index[0]+2
+    firstcol = data.columns[0]
+    
+
+    index_to_remove = data[data[firstcol] == 'Table ID: Pod Performance Flamegraph'].index[0]+2
 
     # Drop all rows before the index of the specific string
     data = data.drop(index=range(index_to_remove))
 
-    df = pd.DataFrame(columns=['NAMESPACE', 'POD', 'CONTAINER', 'CMDLINE',
-                      'STACK TRACE ID', 'STACK TRACE', 'COUNT', 'PERCENTAGE'])
+    df = pd.DataFrame(columns=['NAMESPACE', 'POD', 'CONTAINER', 'CMDLINE','STACK TRACE ID', 'STACK TRACE', 'COUNT', 'PERCENTAGE'])
 
     for index, row in data.iterrows():
-        st = str(row['Table ID: network_timeseries'])
+        st = str(row[firstcol])
         arr = st.split()
+        if arr[0] == 'Table' and arr[1] == 'ID:':
+            break
         df = addToRow(df, index, 'NAMESPACE', arr[0])
         df = addToRow(df, index, 'POD', arr[1])
         df = addToRow(df, index, 'CONTAINER', arr[2])
