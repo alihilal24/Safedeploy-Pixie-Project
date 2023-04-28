@@ -18,18 +18,18 @@
 
 (NOTE: if you want to enter a series of functions as your search argument separate them by ';')
 
-**How to use FlamegraphFormatter.py**
+**How to use CSVFormatter.py**
 
 - Enter the repo folder in the command line (make sure the unformatted flamegraph csv file is in the folder)
 
 - The required arguement is the name of the unformatted flamegraph csv file
 
-- Example: `python FlamegraphFormatter.py flamegraph-test.csv`
+- Example: `python CSVFormatter.py flamegraph-test.csv`
 
 - This will output the formatted csv file into a default file named `Formatted_Pod_Performance.csv`
 
 - An additional, optional arguement is availabe if you would like to specify the name of the output file (must include `.csv` in file name)
 
-- Example: `python FlamegraphFormatter.py flamegraph-test.csv output.csv`
+- Example: `python CSVFormatter.py flamegraph-test.csv output.csv`
 
 - This will output the formatted csv file into a file with the name of the second argument
