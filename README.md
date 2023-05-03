@@ -3,19 +3,19 @@ To do this run 'px run px/pod -- --pod yourworkspace/yourpodname' which will out
 Then run 'cloudshell download *yourfile*' to download the file locally
 Add this and any other pod_performance files into the folder that you store these functions and you will be able to generate flamegraphs from them.
 
-**How to use FlamegraphFormatter.py**
+**How to use CSVFormatter.py**
 
 - Enter the repo folder in the command line (make sure the unformatted flamegraph csv file is in the folder)
 
 - The required arguement is the name of the unformatted flamegraph csv file
 
-- Example: `python FlamegraphFormatter.py flamegraph-test.csv`
+- Example: `python CSVFormatter.py flamegraph-test.csv`
 
 - This will output the formatted csv file into a default file named `Formatted_Pod_Performance.csv`
 
 - An additional, optional arguement is availabe if you would like to specify the name of the output file (must include `.csv` in file name)
 
-- Example: `python FlamegraphFormatter.py flamegraph-test.csv output.csv`
+- Example: `python CSVFormatter.py flamegraph-test.csv output.csv`
 
 - This will output the formatted csv file into a file with the name of the second argument
 
