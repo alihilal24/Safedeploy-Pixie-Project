@@ -61,12 +61,20 @@ def createFlamegraphSVG(file_path, title):
         h = 40
         x = offset
         y = height
-        if func[0:3] == '[k]':
-            color = svgwrite.rgb(20, 35, 125, '%')
-        elif func[0:3] == 'run':
-            color = svgwrite.rgb(25, 30, 125, '%')
+        if title == 'flamegraph1':
+            if func[0:3] == '[k]':
+                color = svgwrite.rgb(20, 35, 125, '%')
+            elif func[0:3] == 'run':
+                color = svgwrite.rgb(25, 30, 125, '%')
+            else:
+                color = svgwrite.rgb(20, 25, 125, '%')
         else:
-            color = svgwrite.rgb(20, 25, 125, '%')
+            if func[0:3] == '[k]':
+                color = svgwrite.rgb(20, 80, 40, '%')
+            elif func[0:3] == 'run':
+                color = svgwrite.rgb(25, 80, 30, '%')
+            else:
+                color = svgwrite.rgb(20, 80, 20, '%')
         dwg.add(dwg.rect(insert=(x, y), size=(w, h), fill=color))
         if len(func) > w/4:
             sub = func[:3] + "..."
